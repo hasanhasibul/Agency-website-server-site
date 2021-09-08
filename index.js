@@ -24,7 +24,7 @@ client.connect(err => {
 
   app.post('/admin', (req, res) => {
     const email = req.body.email
-    console.log(email);
+    // console.log(email);
     adminCollection.insertOne({ email: email })
       .then(result => {
         if (result) {
@@ -41,7 +41,7 @@ client.connect(err => {
     const des = req.body.des;
 
     const newImg = req.files.file.data;
-    console.log(newImg);
+    // console.log(newImg);
     const encImg = newImg.toString('base64');
 
     const image = {
@@ -129,8 +129,8 @@ client.connect(err => {
     paymentDetailsCollection.find({ email: email })
       .toArray((error, documents) => {
         if (documents) {
-          console.log(documents);
-          // res.send(documents)
+          // console.log(documents);
+          res.send(documents)
         }
       })
 
